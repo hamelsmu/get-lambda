@@ -1,0 +1,15 @@
+name: Lambda Cloud List Instance Types
+
+on:
+  workflow_dispatch:
+
+jobs:
+  query_lambda:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: See types
+      run: |
+        ./list_types.sh

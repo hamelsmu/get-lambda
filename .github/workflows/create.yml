@@ -1,0 +1,44 @@
+name: Lambda Instance Creation Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      instance_type:
+        description: 'Type of the instance'
+        required: true
+        type: choice
+        options: # run list_types.sh to get the list of available instance types
+            - "gpu_8x_h100_sxm5"
+            - "gpu_1x_h100_pcie"
+            - "gpu_8x_a100_80gb_sxm4"
+            - "gpu_1x_a10"
+            - "gpu_1x_rtx6000"
+            - "gpu_1x_a100"
+            - "gpu_1x_a100_sxm4"
+            - "gpu_2x_a100"
+            - "gpu_4x_a100"
+            - "gpu_8x_a100"
+            - "gpu_1x_a6000"
+            - "gpu_2x_a6000"
+            - "gpu_4x_a6000"
+            - "gpu_8x_v100"
+
+jobs:
+  create_instance:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+
+    - name: Install dependencies
+      run: |
+        pip install lambdacloud
+
+    - name: Execute script
+      env:
+        LAMBDA_CLOUD_TOKEN: ${{ secrets.LAMBDA_CLOUD_TOKEN }}
+      run: |
+        python create_instance.py --instance_type ${{ github.event.inputs.instance_type }}
