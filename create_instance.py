@@ -5,7 +5,7 @@ import os
 import time
 
 def main(instance_type):
-    sleep_time = 10
+    sleep_time = 60
     login(token=os.getenv('LAMBDA_CLOUD_TOKEN'))
 
     while True:
@@ -14,7 +14,7 @@ def main(instance_type):
             print(f'Instance created with id: {instance_id}')
             break
         except:
-            print(f'No desired instance found...sleeping for {sleep_time} seconds')
+            print(f'No {instance_type} found...sleeping for {sleep_time} seconds')
             time.sleep(sleep_time)
 
 if __name__ == "__main__":
