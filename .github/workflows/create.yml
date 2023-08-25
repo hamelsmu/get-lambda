@@ -1,4 +1,4 @@
-name: Lambda Instance Creation Workflow
+name: Create Instance
 
 on:
   workflow_dispatch:

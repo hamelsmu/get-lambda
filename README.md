@@ -10,7 +10,7 @@ Use GitHub Actions to get the lambda cloud instances you want.
 
 3. Setup a new [ssh key in lambda](https://cloud.lambdalabs.com/ssh-keys) named `lambda-new`.  And save the private key locally. You will need the private key to ssh into the instance after it is created.
 
-4. Go to your Actions tab and enable workflows.
+4. Go to your Actions tab and enable workflows if they aren't already enabled.  Then click on the `Lambda Instance Creation`
 
 
 
