@@ -14,7 +14,7 @@ Use GitHub Actions to get the lambda cloud instances you want.
 
 4. Go to your Actions tab and enable workflows if they aren't already enabled.  Then click on the `Create Instance` workflow and select the kind of GPU that works for you:
 
-![](2023-08-24-23-28-01.png)
+![](actions.png)
 
 
 
